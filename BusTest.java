@@ -5,13 +5,11 @@ public class BusTest{
 
   Bus bus;
   Passengers passengers;
-  Route route;
 
   @Before
   public void before(){
     this.bus = new Bus("Edinburgh", 33);
     this.passengers = new Passengers();
-    this.route = route();
   }
   @Test
   public void hasName(){
@@ -23,9 +21,15 @@ public class BusTest{
     int routeNumber = bus.getRouteNumber();
     assertEquals(33, routeNumber);
   }
+
   @Test
-  public void setRoute(String newroute){
-    this.route = route();
+  public void busStartsEmpty(){
+    assertEquals(0, bus.personCount());
   }
 
+  // @Test
+  // public void passengersJoin(){
+  //   bus.join(passengers);
+  //   assertEquals(1, personCount());
+  // }
 }
